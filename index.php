@@ -1,20 +1,8 @@
 <?php
 session_start();
-
+//include_once('addToCart.php');
 include_once('dbconfig.php');
 
-// if(isset($_POST['add_to_cart'])){
-
-//   $_SESSION['productid'] = $_POST['itemATCId'];
-//   $_SESSION['itemATCPrice'] = $_POST['itemATCPrice'];
-//   $_SESSION['productq'] = $_POST['itemATCQuantiy'];
-
-//   header("Location:cart.php");
-// }
-$j = "";
-if(isset($_POST['quantiy'])){
-  $j = $_POST['quantiy'];
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -147,40 +135,69 @@ if(isset($_POST['quantiy'])){
        
         transform: scale(3.0); /* scale up the image on hover */
       }
-
-
-      /* Hide the default select arrow */
-  select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    /* add a background image for the custom arrow */
-    background-image: url('arrow.svg');
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: 20px;
-    /* Add some padding to make room for the arrow */
-    padding-right: 30px;
-  }
-  /* Style the option elements */
-  option {
-    background-color: #F4F4F4;
-    color: #333;
-  }
       </style>
 </head>
 <body>
-  <?php
-include_once("nav.php");
-  ?>
-   
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+        
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+          <a class="navbar-brand" href="index.php"><img class="logoImg" src="Static/img/logo.jpg"></a>
+        <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" name="searchFl" id="searchFl" style="width : 1200px;">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="serchfor" id="serchfor">Search</button>
+        </form>
+          
+          <?php
+              if(isset($_SESSION['dbfn'])){
+                echo '
+                <ul class="navbar-nav mr-auto"  >
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                  '.$_SESSION['dbfn'].'
+                  </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                  <a class="dropdown-item" href="userDash.php" >Your Account</a>
+                  <hr>
+                  <a class="dropdown-item" href="companydetail.php" >Company Details</a>
+                  <hr>
+                  <a class="dropdown-item" href="logout.php" >Security</a>
+                  <hr>
+                  <a class="dropdown-item" href="logout.php" >Logout</a>
+                  <hr>
+                </div>
+              </li>
+            </ul>';
+            }else{
+              echo '<ul class="navbar-nav mr-auto" >
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Are you a member?
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="login.php">Login</a>
+                  <hr>
+                  <a class="dropdown-item" href="register.php">Register</a>
+                  <hr>
+                  <a class="dropdown-item" href="#">Contact us</a>
+                </div>
+              </li>
+            </ul>';
+            }
+    
+          ?>
+          
+          
+          <br>
+         
+        </div>
+      </nav>
       <hr>
       
       <div class="grid-container">
       
         <?php
-
-           
            $searchFl = isset($searchFl) ? $searchFl : '';
            $productid = isset($productid) ? $productid : '';
            if(isset($_POST['serchfor'])){
@@ -198,7 +215,7 @@ include_once("nav.php");
                            <section class="product-info">
                              <input type="hidden" name="itemATCId" value="'.$rows['productid'].'">
                              <h1 name="itemATCName">'.$rows['productName'].'</h1>
-                             <img src="'.substr($rows['productimg'],3).'" alt="Product Image" id="logoImg">
+                             <img src="'.$rows['productimg'].'" alt="Product Image" id="logoImg">
                              <p name="itemATDes">'.$rows['productDes'].'</p>
                              <!--<ul id="amtpr">
                                  <li name="itemATCAmt">Amt : </li>
@@ -206,11 +223,11 @@ include_once("nav.php");
                                  
                                </ul>-->
                                <ul  id="pricepr">
-                               <li name="itemATCP">Price : USD $</li>
-                               <li name="itemATCPrice" id="itemATCPrice" value="">'.$rows['productUnitprice'].'</li>
-                             </ul>
-                             <a class="btn btn-block text-uppercase text-black" href="cart.php?id='.$rows['productid'].'&price='.$rows['productUnitprice'].'&name='.$rows['productName'].'" id="add_to_cart" name="add_to_cart" style="border: black solid 1px;background-color: #F6AE2D;">Add to Cart</a>
-                             <!--<button name="add_to_cart"><a>Add to Cart</a></button>--></section>
+                                 <li name="itemATCP">Price : USD $</li>
+                                 <li name="itemATCPrice">'.$rows['productUnitprice'].'</li>
+                               </ul>
+                               <button name="add_to_cart"><a  href="cart.php?id='.$rows['productid'].'">Add to Cart</a></button>
+                           </section>
                            <hr>
                        </main>
                        ';
@@ -226,8 +243,6 @@ include_once("nav.php");
              $getProducts = mysqli_query($con, "SELECT productid, productName, productimg, productUnitprice, productDes FROM product");
    
                if($getProducts){
-
-                
                    
                    if(mysqli_num_rows($getProducts) > 0){
                        while($rows = mysqli_fetch_assoc($getProducts)){
@@ -236,22 +251,21 @@ include_once("nav.php");
                            echo '
                            <main class="mainsection">
                              <section class="product-info">
-                               <input name="itemATCId" id="itemATCId" value="'.$rows['productid'].'" hidden>
+                               <p name="itemATCId" hidden>'.$rows['productid'].'</P>
                                <h1 name="itemATCName">'.$rows['productName'].'</h1>
-                               <img src="'.substr($rows['productimg'],3).'" alt="Product Image" id="logoImg">
+                               <img src="'.$rows['productimg'].'" alt="Product Image" id="logoImg">
                                <p name="itemATDes">'.$rows['productDes'].'</p>
-                               <ul id="amtpr">
+                               <!--<ul id="amtpr">
                                  <li name="itemATCAmt">Amt : </li>
-                                 <li name="itemATCQuantiy"><input type="number" name="quantiy" id="quantiy" ></li>
+                                 <li name="itemATCQuantiy"><input type="number" name="quantiy" ></li>
                                  
-                               </ul>
+                               </ul>-->
                                <ul  id="pricepr">
                                  <li name="itemATCP">Price : USD $</li>
-                                 <li name="itemATCPrice" id="itemATCPrice" value="">'.$rows['productUnitprice'].'</li>
+                                 <li name="itemATCPrice">'.$rows['productUnitprice'].'</li>
                                </ul>
-                               <!--<button type="submit" class="btn btn-block text-uppercase text-white" name="add_to_cart" name="add_to_cart"><a href="cart.php?id='.$rows['productid'].'&price='.$rows['productUnitprice'].'&name='.$rows['productName'].'" id="add_to_cart" name="add_to_cart" >Add to Cart</a></button>-->
-                              <a class="btn btn-block text-uppercase text-black" href="cart.php?id='.$rows['productid'].'&price='.$rows['productUnitprice'].'&name='.$rows['productName'].'" id="add_to_cart" name="add_to_cart" style="border: black solid 1px;background-color: #F6AE2D;">Add to Cart</a>
-                              <!--<button name="add_to_cart"><a>Add to Cart</a></button>-->
+                               
+                               <button name="add_to_cart"><a  href="cart.php?id='.$rows['productid'].'">Add to Cart</a></button>
                              </section>
                              <hr>
                          </main>
@@ -266,7 +280,7 @@ include_once("nav.php");
            }
       
         ?>
- </form>
+
       </div>
       
 </body>

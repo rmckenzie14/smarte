@@ -1,10 +1,15 @@
 <?php
-//session_start();
 
-$host = 'localhost';
-$user = 'root';
-$pwd = '';
-$dbName = 'smart_e';
+
+$host = 'gator3215';
+$user = 'hummions_smarte';
+$pwd = '3bc8ba3f81cf_2023';
+$dbName = 'hummions_smarte';
+
+// private $host = "gator3215";
+//     private $user = "hummions_avaloni";
+//     private $pwd = "SuNmoon123!dayna";
+//     private $dbName = "hummions_cariShield";
 
 //create connection
 // $dbconnection = new mysqli($host, $user, $pwd, $dbName);

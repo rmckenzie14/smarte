@@ -46,7 +46,7 @@ include_once('addUserGet.php');
         <div class="row px-3">
             <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
                 <div class="card-body">
-                    <h2 class="title text-center mt-4">Welcome To <a href="index.php"><img src="static/img/logo.jpg" alt="" style="height:50px; width:150px;"></a></h2>
+                    <h2 class="title text-center mt-4">Welcome To <a href="index.php"><img src="Static/img/logo.jpg" alt="" style="height:50px; width:150px;"></a></h2>
                     <h3 class="title text-center mt-4">Let's get started</h3>
                     <p class="text-center">Please enter your information</p>
                     <?php

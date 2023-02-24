@@ -1,14 +1,19 @@
 <?php
 session_start();
 include_once('dbconfig.php');
-
-// if(isset($_POST['Gotocart'])){
-//     header("Location:increasecartAmt.php");
-//   }elseif(isset($_POST['Continueshopping'])){
+if(isset($_POST['Gotocart'])){
+    header("Location:viewcart.php");
+  }elseif(isset($_POST['Continueshopping'])){
+    header("Location:index.php");
+    
+ }
+// if(isset($_POST['logout'])){
+//     header("Location:viewcart.php");
+//   }elseif(isset($_POST['cancel'])){
 //     header("Location:index.php");
     
-// }
-// // if(!isset($_SESSION['dbfn'])){
+//   }
+// if(!isset($_SESSION['dbfn'])){
 //     header("Location: error.html");
 // }
 ?>
@@ -19,7 +24,6 @@ include_once('dbconfig.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="Static/Css/forgotP.css">
-    <link rel="stylesheet" type="text/css" href="Static/Css/forgotP2.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
@@ -29,7 +33,239 @@ include_once('dbconfig.php');
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <title>Home</title>
-    
+    <style>
+/* .grid-container {
+        display: grid;
+        gap: 10px 20px;
+        grid-template-columns: 25% 25% 25% 25%;
+        
+        padding: 30px; 
+        width: 95%;
+         margin: auto; 
+        
+      }
+      .grid-item {
+        
+        background-color: #59A799;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 30px; 
+        font-size: 30px;
+        text-align: center;
+        border-radius: 10px;
+        text-color: white;
+        width: 85%;
+        height: 350px;
+      } 
+      */
+    /* Product section styling */
+    .grid-container {
+        display: grid;
+        gap: 10px 20px;
+        grid-template-columns: 25% 25% 25% 25%;
+        width: 95%;
+         margin: auto;
+    }
+    #amtpr li, #pricepr li{
+      display: inline-block;
+    }
+
+    input[type='number']{
+    width: 60px;
+    border-radius:5px;
+    background-color: #F6AE2D;
+    } 
+   
+.product-info {
+	margin: 50px auto;
+	width: 80%;
+  height: 500px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+  border: 1px solid black;
+  border-radius:10px;
+  background-color: #59A799;
+  
+}
+.product-info h1, .product-info p, .product-info ul{
+  color: #FFFFFF;
+} 
+.product-info h1 {
+	font-size: 36px;
+	margin-bottom: 20px;
+  
+}
+
+.product-info img {
+	max-width: 100%;
+  height: 150px;
+	//height: auto;
+  margin-bottom: 20px;
+}
+
+.product-info p {
+	font-size: 18px;
+	line-height: 1.5;
+	margin-bottom: 20px;
+  
+}
+
+.product-info ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+  margin-bottom: 20px;
+  
+}
+
+.product-info li {
+	margin-bottom: 10px;
+}
+
+.product-info button {
+	background-color: #F6AE2D;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	font-size: 18px;
+	cursor: pointer;
+  border-radius: 10px;
+  
+}
+
+.product-info button:hover {
+	background-color: #555;
+}
+.mainsection{
+  width: 95%;
+  margin:auto;
+}
+      a:hover { text-decoration: none; }
+      #logoImg{
+        width: 150px;
+        
+        height: 150px; /* set height to auto to maintain aspect ratio */
+        transition: transform 0.3s; add transition for smooth animation
+      }
+      /* #logoImg:hover{
+       
+        transform: scale(3.0); /* scale up the image on hover 
+      } */
+    /***************** */
+    main {
+	max-width: 960px;
+	margin: 20px auto;
+	padding: 0 20px;
+}
+
+h1 {
+	font-size: 36px;
+	margin-bottom: 30px;
+}
+
+.product {
+	display: flex;
+	margin-bottom: 50px;
+}
+
+.product img {
+	max-width: 400px;
+	margin-right: 20px;
+}
+
+.product-info {
+	flex: 1;
+}
+
+.product-info h2 {
+	font-size: 24px;
+	margin: 0 0 10px;
+}
+
+.product-info p {
+	margin: 0 0 10px;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+}
+
+input[type="number"] {
+	width: 60px;
+	margin-right: 10px;
+}
+
+button {
+	background-color: #333;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+footer {
+	background-color: #333;
+	color: #fff;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	padding: 0 20px;
+}
+
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+header {
+	background-color: #333;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	height: 80px;
+	padding: 0 20px;
+}
+
+.logo {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+nav li {
+	margin: 0 10px;
+}
+
+nav a {
+	color: #fff;
+	text-decoration: none;
+}
+
+main {
+	max-width: 100%;
+	margin: 20px auto;
+	padding: 0 20px;
+}
+
+h1 {
+	font-size: 36
+}
+
+
+
+      
+      </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -38,8 +274,10 @@ include_once('dbconfig.php');
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent" >
           <a class="navbar-brand" href="index.php"><img class="logoImg" src="Static\img\logo.jpg"></a>
-        <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST" class="form-inline my-2 my-lg-0">
-            
+        <form action="cart.php" method="POST" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" name="searchFl" id="searchFl" style="width : 1200px;">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="serchfor" id="serchfor">Search</button>
+          
           <?php
               if(isset($_SESSION['dbfn'])){
                 echo '
@@ -89,7 +327,7 @@ include_once('dbconfig.php');
       
       
       <main>
-      
+		
         <?php
           
            $productid = isset($productid) ? $productid : '';
@@ -97,136 +335,61 @@ include_once('dbconfig.php');
            $productname = isset($productname) ? $productname : '';
            $productprice = isset($productprice) ? $productprice : '';
            $productimg = isset($productimg) ? $productimg : '';
-           $productq = isset($productq) ? $productq : '';
-           $newquantity = isset($newquantity) ? $newquantity : '';
-           $itemcost = isset($itemcost) ? $itemcost : '';
-           //if(isset($_GET['id']) && isset($_SESSION['userid'])){
-            
 
-            
+           if(isset($_GET['id']) && isset($_SESSION['userid'])){
 
-            
-            if(isset($_SESSION['userid'])){
-              $userid = $_SESSION['userid'];
+                $productid =  $_GET['id'];
+                $userid = $_SESSION['userid'];
               
-              if(isset($_GET['id']) && isset($_GET['price']) && isset($_GET['name'])){
-
-                $productid = $_GET['id'];
-                $productprice = $_GET['price'];
-                $productname = $_GET['name'];
-                $productq = 1;
-
-                $_SESSION['productid'] = $productid;
-                $_SESSION['productname'] = $productname;
-                $_SESSION['productprice'] = $productprice ;
-               
-                
-              }
+            
              
              
-                //$productq = mysqli_real_escape_string($con, $_POST['itemquantity']);
-             //&& isset($_SESSION['productq']) && isset( $_SESSION['itemATCPrice'])
-             
-                
-              var_dump("ID ".$productid);
-              var_dump("Price ".$productprice);
-             var_dump("quantity  ".$productq);
-             
-             $getProductsFromCart = mysqli_query($con, "SELECT productquantity FROM cart WHERE productid = '$productid'");
+             $getProducts = mysqli_query($con, "SELECT productid, productName,  productimg, productUnitprice, productDes FroM product WHERE productid = '$productid'");
    
-               if($getProductsFromCart){
+               if($getProducts){
                    
-                   if(mysqli_num_rows($getProductsFromCart) > 0){
+                   if(mysqli_num_rows($getProducts) > 0){
 
-                       while($rows = mysqli_fetch_assoc($getProductsFromCart)){
-                        $productquantity = $rows['productquantity'];
+                       while($rows = mysqli_fetch_assoc($getProducts)){
+                        $productname = $rows['productName'];
+                        $productprice = $rows['productUnitprice'];
+                        $productimg = $rows['productimg'];
+
                        }
 
-                       $newquantity = (float)$productq + (float)$productquantity;
-                       $itemcost = (float)$newquantity * (float)$productprice;
-
-                       $updatecart = mysqli_query($con, "UPDATE cart SET  productquantity = '$newquantity', productprice = '$itemcost' WHERE productid = '$productid'");
-
-                       if($updatecart){
+                       $createItemCart = mysqli_query($con, "INSERT INTO cart (userid, productid, productimage, productprice) VALUES ('$userid', '$productid', '$productimg', '$productprice')");
+                       if($createItemCart){
                         echo ' <div class="mainDivFP cardFP">
-                         <h2 class="title text-center mt-4">Item added to your cart.</h2>
-                         <p class="text-center"> Cart was updated with '.$productq.' '.$productname.'</p>
+                            <h2 class="title text-center mt-4">Item added to your cart.</h2>
+                            
+                            <img src="'.$productimg.'" alt="Product Image" id="logoImg" >
+                            <p class="text-center">'.$productname.' was added to your cart.</p>
+                            
+                            
+                                
+                                <div class="mb-3 bg-primary"style="border-radius: 10px;">
+                                    <button type="submit" id="Gotocart" name="Gotocart" class="btn btn-block text-white text-uppercase reserPwBtn">
+                                        Go to cart.
+                                    </button>
+                                </div>
+                                <div class="mb-3 bg-primary"style="border-radius: 10px;">
+                                    <button type="submit" id="Continueshopping" name="Continueshopping" class="btn btn-block text-white text-uppercase reserPwBtn">
+                                        Continue shopping.
+                                    </button>
+                                </div>
+                            
+                    </div>';
+                        }
 
-                         <p class="text-center"> Do you wish to increase the amount</p>
-                         <!--<form method="POST" autocomplete="off" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">-->
-                             
-                             <div class="mb-3 bg-primary"style="border-radius: 10px;">
-                                 <button type="submit" id="Gotocart" name="Gotocart" class="btn btn-block text-white text-uppercase reserPwBtn">
-                                 <a href="increasecartAmt.php" class="btn btn-block text-white text-uppercase reserPwBtn">Yes</a>
-                                 </button>
-                             </div>
-                             <div class="mb-3 bg-primary"style="border-radius: 10px;">
-                                 <button type="submit" id="Continueshopping" name="Continueshopping" class="btn btn-block text-white text-uppercase reserPwBtn">
-                                 <a href="index.php" class="btn btn-block text-white text-uppercase reserPwBtn">No</a>
-                                 </button>
-                             </div>
-                         
-                            </div>';
-                       }else{
-                        echo ' <div class="mainDivFP cardFP">
-                         <h2 class="title text-center mt-4">Item added to your cart.</h2>
-                         
-                         <p class="text-center">Your cart was not updated. Please try again.</p>
-                         <!--<form method="POST" autocomplete="off" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">-->
-                             
-                             <div class="mb-3 bg-primary"style="border-radius: 10px;">
-                                 <button type="submit" id="Gotocart" name="Gotocart" class="btn btn-block text-white text-uppercase reserPwBtn">
-                                 <a href="viewcart.php" class="btn btn-block text-white text-uppercase reserPwBtn">Go to cart</a>
-                                 </button>
-                             </div>
-                             <div class="mb-3 bg-primary"style="border-radius: 10px;">
-                                 <button type="submit" id="Continueshopping" name="Continueshopping" class="btn btn-block text-white text-uppercase reserPwBtn">
-                                 <a href="index.php" class="btn btn-block text-white text-uppercase reserPwBtn">Continue shopping</a>
-                                 </button>
-                             </div>
-                         
-                           </div>';
-                       }
 
-                   }else{
-
-                    $itemcost = (float)$productprice * (float)$productq;
-                    
-                    $createItemCart = mysqli_query($con, "INSERT INTO cart (userid, productid, productprice, productquantity) VALUES ('$userid', '$productid', '$productprice', '$productq')");
-                    if($createItemCart){
-
-                      
-                     echo ' <div class="mainDivFP cardFP">
-                         <h2 class="title text-center mt-4">Item added to your cart.</h2>
-                         <p class="text-center">'.$productname.' was added to your cart.</p>
-                         <!--<form method="POST" autocomplete="off" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">-->
-                             
-                             <div class="mb-3 bg-primary"style="border-radius: 10px;">
-                                 <button type="submit" id="Gotocart" name="Gotocart" class="btn btn-block text-white text-uppercase reserPwBtn">
-                                 <a href="index.php" class="btn btn-block text-white text-uppercase reserPwBtn">Go to cart</a>
-                                 </button>
-                             </div>
-                             <div class="mb-3 bg-primary"style="border-radius: 10px;">
-                             <button type="submit" id="Gotocart" name="Gotocart" class="btn btn-block text-white text-uppercase reserPwBtn">
-                             <a href="index.php" class="btn btn-block text-white text-uppercase reserPwBtn">Continue shopping</a>
-                             </button>
-                                 
-                             </div>
-                         
-                 </div>';
-                     }
                    }
              
                }
-            
             }else{
-              
                 echo '<div class="mainDivFP cardFP">
                 <h2 class="title text-center mt-4">Sorry</h2>
                 
                 <p class="text-center">You need to be logged into your account to be able add an item to the shopping cart.</p>
-                     
-                  <!--action="<?php echo $_SERVER["PHP_SELF"]; ?>"-->
                 
                     
                     <div class="mb-3 bg-primary"style="border-radius: 10px;">
@@ -243,21 +406,11 @@ include_once('dbconfig.php');
                 
                 </div>';
               }
-            
-        //        echo '<tr style="background-color: #59A799;">
-        //        <td><img src="'.substr($rows['productimg'],3).'" alt="Product Image" id="logoImg" style="border-radius: 10px; "></td>
-        //        <td>'.$rows['productName'].'</td>
-        //        <td>'.$rows['productUnitprice'].'</td>
-        //        <td><input type="number" value="1"></td>
-        //        <td>$19.99</td>
-        //        <td><button>Remove</button></td>
-        //    </tr>
-        //    ';
-       
+      
         ?>
         
+</form>
 
-        </form>
-       
+
 </body>
 </html>

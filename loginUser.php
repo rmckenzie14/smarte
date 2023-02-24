@@ -36,7 +36,8 @@ if(isset($_POST['logingbtn'])){
                     $isverified = $rows['isverified'];
                 }
 
-
+                
+                //check if user verified account
                 if($isverified == "true"){
                 //$isVerified = password_verify($userLPassword, $dbpw);
                 

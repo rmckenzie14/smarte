@@ -17,7 +17,7 @@ include_once('addComInfo.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Static/Css/bootstrap-4.1.3-dist/css/bootstrap.min.css"></link>
-    <script type="text/javascript" scr="static\bootstrap-4.1.3-dist\js\bootstrap.min.js"></script>
+    <script type="text/javascript" scr="Static\bootstrap-4.1.3-dist\js\bootstrap.min.js"></script>
     <script type="text/javascript" scr="Static\js\tail.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -55,7 +55,7 @@ include_once('addComInfo.php');
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.php"><img class="logoImg" src="static\img\logo.jpg"></a>
+        <a class="navbar-brand" href="index.php"><img class="logoImg" src="Static\img\logo.jpg"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -176,9 +176,11 @@ include_once('addComInfo.php');
                                             <label>Country</label>
                                             <select class="form-control form-control-md" type="text" name="comCountry" value="" id="">
                                               <option></option>
-                                              <option>Technology</option>
-                                              <option>Food Service</option>
-                                              <option>Colothing</option>
+                                              <option>Jamaica</option>
+                                              <option>Barbados</option>
+                                              <option>The Bahamas</option>
+                                              <option>Trinidad and Tobag</option>
+                                              <option>Anguilla</option>
                                              </select>
                                         </div>
                                         <div class="grid grid-cols-2 gap-4 my-2">

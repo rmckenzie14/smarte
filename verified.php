@@ -33,7 +33,7 @@
         <div class="row px-3">
             <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
                 <div class="card-body">
-                    <h2 class="title text-center mt-4">Welcome Come Back <a href="index.php"><img src="static/img/logo.jpg" alt="" style="height:50px; width:150px;"></a></h2>
+                    <h2 class="title text-center mt-4">Welcome Come Back <a href="index.php"><img src="Static/img/logo.jpg" alt="" style="height:50px; width:150px;"></a></h2>
                     
                     <p class="text-left text-black">Hi 
                     <?php 

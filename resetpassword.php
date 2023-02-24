@@ -29,7 +29,7 @@
 
 <body>
     <div>
-        <a href="../index.php"><img src="static/img/logo.jpg" alt=""></a>
+        <a href="../index.php"><img src="Static/img/logo.jpg" alt=""></a>
     </div>
     <div class="container">
         <div class="row px-3">

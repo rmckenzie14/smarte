@@ -27,7 +27,7 @@ include_once('loginUser.php');
 
 <body>
     <div id="logoImg" style="width:30%;">
-        <a href="index.php"><img src="static/img/logo.jpg" alt=""></a> 
+        <a href="index.php"><img src="Static/img/logo.jpg" alt=""></a> 
     </div>
     <div class="mainDiv card2" >
         <h3 class="title text-center mt-4">Smart-E</h3>
@@ -35,7 +35,7 @@ include_once('loginUser.php');
                         //session_destroy();
         if(isset($_SESSION['errorlg'])){
             echo '<div class="alert alert-warning" role="alert">'.$_SESSION['errorlg'].'
-            sometech974@gmail.com
+            
             </div>';
         }
                        

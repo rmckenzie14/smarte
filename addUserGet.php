@@ -97,7 +97,7 @@ require 'PHPMailer/PHPMailer/src/SMTP.php';
                         //$mail->AddCC("cc-recipient-email@domain", "cc-recipient-name");
                         $mail->Subject = "TWelccome to SMART-E";
                         $content = "<p> Thank you for registering with Smart-E. Your are almost there. Please use the link below to verfify your account by selecting.</p> <br>";
-                        $content .= "http://localhost/smartE/verified.php?id=$verificationCode";
+                        $content .= "https://carishield.com/hwBackup/smarte/verified.php?id=$verificationCode";
                         $content .= "<p>Regards, </p>";
                         $content .= "<p>SmartE</p>";
 

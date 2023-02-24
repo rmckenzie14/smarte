@@ -33,7 +33,7 @@ if(isset($_POST['logout'])){
 
 <body>
     <div id="logoImg">
-        <a href="index.php"><img src="static/img/logo.jpg" alt=""></a>
+        <a href="index.php"><img src="Static/img/logo.jpg" alt=""></a>
     </div>
     <div class="mainDivFP cardFP">
         <h2 class="title text-center mt-4">You are about to logout of your account.</h2>
